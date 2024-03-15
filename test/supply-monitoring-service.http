@@ -1,0 +1,11 @@
+### READ all suppliers
+GET http://localhost:4004/odata/v4/supply-monitoring/Suppliers
+Authorization: Basic alice:123
+
+### READ all books
+GET http://localhost:4004/odata/v4/supply-monitoring/Books
+Authorization: Basic alice:123
+
+### READ all books with supplier
+GET http://localhost:4004/odata/v4/supply-monitoring/Books?$expand=supplier
+Authorization: Basic alice:123

@@ -1,0 +1,17 @@
+### READ all books
+GET http://localhost:4004/odata/v4/order/Books
+Authorization: Basic bob:123
+
+### DELETE book
+DELETE http://localhost:4004/odata/v4/order/Books(ID=201)
+Authorization: Basic bob:123
+
+### Place order
+POST http://localhost:4004/odata/v4/order/submitOrder
+Content-Type: application/json
+Authorization: Basic bob:123
+
+{ 
+    "book": 201,
+    "quantity": 5
+}
