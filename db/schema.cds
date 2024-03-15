@@ -13,6 +13,7 @@ entity Books : managed {
         stock    : Integer;
         price    : Decimal;
         currency : Currency;
+        supplier : Association to one Suppliers
 }
 
 entity Authors : managed {
@@ -25,3 +26,13 @@ entity Authors : managed {
         books        : Association to many Books
                            on books.author = $self;
 }
+
+using {API_BUSINESS_PARTNER as bupa} from '../srv/external/API_BUSINESS_PARTNER';
+
+entity Suppliers as
+    projection on bupa.A_BusinessPartner {
+        key BusinessPartner          as ID,
+            BusinessPartnerFullName  as fullName,
+            BusinessPartnerIsBlocked as isBlocked,
+            books : Association to many Books on books.supplier = $self
+    }
