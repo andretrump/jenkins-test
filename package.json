@@ -18,21 +18,21 @@
     "start": "cds-serve"
   },
   "cds": {
-    "auth": {
-      "kind": "basic",
-      "users": {
-        "alice": {
-          "password": "123",
-          "roles": [
-            "admin"
-          ]
-        },
-        "bob": {
-          "password": "123"
-        }
-      }
-    },
     "requires": {
+      "auth": {
+        "kind": "basic",
+        "users": {
+          "alice": {
+            "password": "123",
+            "roles": [
+              "admin"
+            ]
+          },
+          "bob": {
+            "password": "123"
+          }
+        }
+      },
       "API_BUSINESS_PARTNER": {
         "kind": "odata-v2",
         "model": "srv/external/API_BUSINESS_PARTNER",

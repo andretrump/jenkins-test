@@ -23,3 +23,6 @@ File or Folder | Purpose
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
+
+## Install dependencies for remote
+npm i @sap-cloud-sdk/http-client @sap-cloud-sdk/resilience

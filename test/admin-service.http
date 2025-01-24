@@ -29,3 +29,7 @@ Authorization: Basic alice:123
 ### DELETE book
 DELETE http://localhost:4004/odata/v4/admin/Books(ID=2)
 Authorization: Basic alice:123
+
+### READ book unauthorized
+GET http://localhost:4004/odata/v4/admin/Books(ID=2)
+Authorization: Basic bob:123
