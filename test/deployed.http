@@ -1,0 +1,22 @@
+###
+GET https://f24ddc09trial-dev-cap-demo-srv.cfapps.us10-001.hana.ondemand.com/odata/v4/order/Books
+
+### Get OAuth token
+# @name client_credentials_grant
+POST https://f24ddc09trial.authentication.us10.hana.ondemand.com/oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&client_id={{$dotenv client-id}}&client_secret={{$dotenv client-secret}}
+
+###
+@token = {{client_credentials_grant.response.body.access_token}}
+
+###
+POST https://f24ddc09trial-dev-cap-demo-srv.cfapps.us10-001.hana.ondemand.com/odata/v4/order/submitOrder
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "book": 201,
+  "quantity": 1
+}
