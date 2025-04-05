@@ -1,3 +1,5 @@
+def build
+
 pipeline {
     agent any
 
@@ -6,6 +8,14 @@ pipeline {
     }
 
     stages {
+        stage("init") {
+            steps {
+                script {
+                    build = load "jenkins/build.groovy"
+                }
+            }
+        }
+
         stage("test") {
             steps {
                 echo "Testing the app..."
@@ -14,8 +24,9 @@ pipeline {
 
         stage("build") {
             steps {
-                sh "npm ci"
-                sh "npm run build"
+                script {
+                    build.execute()
+                }
             }
         }
 
