@@ -1,9 +1,6 @@
 pipeline {
-    agent {
-        docker {
-            image 'andretrump/cf-deployment'
-        }
-    }
+    agent any
+
     stages {
         stage("test") {
             steps {
