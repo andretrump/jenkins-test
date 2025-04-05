@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs "Node-22.14.0"
+    }
+
     stages {
         stage("test") {
             steps {
@@ -10,10 +14,8 @@ pipeline {
 
         stage("build") {
             steps {
-                nodejs("Node-22.14.0") {
-                    sh "npm ci"
-                    sh "npm run build"
-                }
+                sh "npm ci"
+                sh "npm run build"
             }
         }
 
