@@ -9,7 +9,10 @@ pipeline {
 
         stage("build") {
             steps {
-                echo "Building the app..."
+                nodejs("Node-22.14.0") {
+                    sh "npm ci"
+                    sh "npm run build"
+                }
             }
         }
 
