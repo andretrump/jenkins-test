@@ -18,7 +18,9 @@
     "@sap/cds-dk": "^8"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "build": "mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar"
   },
   "cds": {
     "requires": {
